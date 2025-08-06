@@ -26,7 +26,7 @@ export default function Dashboard() {
       </header>
       <main className="flex-1 flex flex-col items-center justify-center w-full px-4 py-8 mb-16">
         {/* Relógio com Fusos Horários Mundial */}
-        {abaAtiva === "relogioMundial" && <RelMundi />}
+        {abaAtiva === "relogioMundial" && <RelMundi/>}
 
         {/* Cronômetro */}
         {abaAtiva === "cronometro" && <Cronometro />}
