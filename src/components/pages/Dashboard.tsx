@@ -24,7 +24,6 @@ export default function Dashboard() {
           </span>
         </div>
       </header>
-      {/* Espaço para o conteúdo das funcionalidades */}
       <main className="flex-1 flex flex-col items-center justify-center w-full px-4 py-8 mb-16">
         {/* Relógio com Fusos Horários Mundial */}
         {abaAtiva === "relogioMundial" && <RelMundi/>}
@@ -42,7 +41,6 @@ export default function Dashboard() {
           </div>
         )}
       </main>
-
       <footer className="w-full flex justify-around items-center py-3 bg-neutral-950 fixed bottom-0 left-0 z-20">
         {abas.map(({ value, icon: Icon }) => (
           <button
