@@ -3,6 +3,7 @@ import { useState } from "react";
 import MinClockAnalogMini from "@/components/MinClockAnalogMini";
 import Cronometro from "@/components/pages/Cronometro";
 import Temporizador from "@/components/pages/Temporizador";
+import RelMundi from "@/components/pages/RelMundi";
 
 let abas = [
   { value: "relogioMundial", icon: Globe },
@@ -26,11 +27,7 @@ export default function Dashboard() {
       {/* Espaço para o conteúdo das funcionalidades */}
       <main className="flex-1 flex flex-col items-center justify-center w-full px-4 py-8 mb-16">
         {/* Relógio com Fusos Horários Mundial */}
-        {abaAtiva === "relogioMundial" && (
-          <div className="text-neutral-400 font-mono text-xl">
-            Relógio Mundial (em breve!)
-          </div>
-        )}
+        {abaAtiva === "relogioMundial" && <RelMundi/>}
 
         {/* Cronômetro */}
         {abaAtiva === "cronometro" && <Cronometro />}
