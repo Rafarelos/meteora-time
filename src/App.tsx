@@ -1,6 +1,6 @@
 import { useState } from "react";
-import MainPage from "@/components/MainPage";
-import Dashboard from "@/components/Dashboard";
+import MainPage from "@/components/pages/MainPage";
+import Dashboard from "@/components/pages/Dashboard";
 
 
 function App() {
