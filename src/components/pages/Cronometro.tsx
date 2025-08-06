@@ -62,7 +62,11 @@ export default function Cronometro() {
             strokeDasharray={circunferencia}
             strokeDashoffset={circunferencia - progressoStroke}
             strokeLinecap="round"
-            style={{ transition: "stroke-dashoffset 0.7s cubic-bezier(0.6,0,0.4,1)" }}
+            style={{ 
+              transition: "stroke-dashoffset 0.7s cubic-bezier(0.6,0,0.4,1)", 
+              transform : "rotate(-90deg)",
+              transformOrigin: "50% 50%"
+            }}
           />
         </svg>
         {/* Cronometro em números */}
