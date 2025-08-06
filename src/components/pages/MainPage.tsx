@@ -12,7 +12,7 @@ export default function MainPage({ aoAvancar }: Props) {
     >
       <h1 className="text-4xl font-mono text-white mb-9">Meteora Time</h1>
       <MinClockAnalog />
-      <p className="text-neutral-400 text-lg mt-7">
+      <p className="text-neutral-400 text-lg mt-7 font-mono">
         Clique em qualquer lugar da tela para inicializar
       </p>
     </div>

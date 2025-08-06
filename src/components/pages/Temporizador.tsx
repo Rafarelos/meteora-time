@@ -196,12 +196,12 @@ export default function Temporizador() {
       <div className="relative" style={{ width: tamanho, height: tamanho }}>
         <svg width={tamanho} height={tamanho} className="absolute left-0 top-0">
           
-          {/* Círculo cinza (fundo) */}
+          {/* Círculo dourado (fundo) */}
           <circle
             cx={centro}
             cy={centro}
             r={raio}
-            stroke="#333"
+            stroke="#ca8a04"
             strokeWidth={10}
             fill="none"
           />
@@ -211,14 +211,16 @@ export default function Temporizador() {
             cx={centro}
             cy={centro}
             r={raio}
-            stroke="#ca8a04"
-            strokeWidth={10}
+            stroke="#333"
+            strokeWidth={11}
             fill="none"
             strokeDasharray={circunferencia}
-            strokeDashoffset={circunferencia - progressoStroke}
+            strokeDashoffset={progressoStroke}
             strokeLinecap="round"
             style={{
               transition: "stroke-dashoffset 0.7s cubic-bezier(0.6,0,0.4,1)",
+              transform : "rotate(-90deg)",
+              transformOrigin: "50% 50%",
             }}
           />
         </svg>
