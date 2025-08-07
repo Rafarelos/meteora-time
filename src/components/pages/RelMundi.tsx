@@ -39,7 +39,7 @@ function fetchHoraCidade(timezone: string): Promise<string> {
 }
 
 export default function RelogioMundial() {
-  const [cidades, setCidades] = useState(timezones.slice(0, 4)); // Começa com 4 cidades
+  const [cidades, setCidades] = useState(timezones.slice(0, 3)); // Começa com 4 cidades
   const [modalAdd, setModalAdd] = useState(false);
   const [novaCidade, setNovaCidade] = useState<string>(timezones[0].timezone);
 
@@ -56,12 +56,11 @@ export default function RelogioMundial() {
       if (ativo) setCidades(atualizadas);
     }
     atualizarHoras();
-    const interval = setInterval(atualizarHoras, 5_000);
+    const interval = setInterval(atualizarHoras, 60_000);
     return () => {
       ativo = false;
       clearInterval(interval);
     };
-    // eslint-disable-next-line
   }, [cidades.length]);
 
   // Adiciona cidade
@@ -80,7 +79,7 @@ export default function RelogioMundial() {
 
   return (
     <div className="min-h-[70vh] w-full flex flex-col items-center justify-center px-4 relative">
-      <div className="mb-6 mt-4 text-3xl font-mono text-neutral-200 tracking-tight text-center flex items-center justify-center gap-4 w-full">
+      <div className="mb-6 mt-4 pt-16 md:pt-20 text-3xl font-mono text-neutral-200 tracking-tight text-center flex items-center justify-center gap-4 w-full">
         <span>Relógio Mundial</span>
         {/* Botão add cidade - mobile */}
         <button
@@ -170,12 +169,12 @@ export default function RelogioMundial() {
 
       {/* Botão add cidade - desktop */}
       <button
-          className="hidden lg:flex fixed bottom-28 right-12 w-20 rounded-full bg-neutral-900 hover:bg-neutral-800 border-2 border-[#22c55e] flex items-center justify-center transition"
-          onClick={() => setModalAdd(true)}
-          title="Adicionar cidade"
-        >
-          <Plus size={48} color="#22c55e" />
-        </button>
+        className="hidden lg:flex fixed bottom-28 right-12 w-20 rounded-full bg-neutral-900 hover:bg-neutral-800 border-2 border-[#22c55e] flex items-center justify-center transition"
+        onClick={() => setModalAdd(true)}
+        title="Adicionar cidade"
+      >
+        <Plus size={48} color="#22c55e" />
+      </button>
     </div>
   );
 }

@@ -40,7 +40,7 @@ export default function MainPage({ aoAvancar }: Props) {
       <FadeInOut show={!hideClock} className="mb-8">
         <MinClockAnalog />
       </FadeInOut>
-      <div className="text-neutral-400 text-lg font-mono min-h-[32px] mt-4">
+      <div className="text-neutral-400 text-lg font-mono min-h-[32px] mt-4 w-full text-center flex justify-center">
         {showDesc && (
           <Typewriter
             text="Clique em qualquer lugar da tela para inicializar"
