@@ -154,7 +154,6 @@ export default function Temporizador() {
 
   return (
     <div className="flex flex-col items-center justify-center gap-8">
-      
       {/* Modal Alert*/}
       {modalAlertaAberto && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-50">
@@ -191,11 +190,12 @@ export default function Temporizador() {
         mInicial={m}
         sInicial={s}
       />
-
+      <div className="mb-8 mt- text-3xl font-mono text-neutral-200 tracking-tight text-center flex items-center justify-center gap-4 w-full">
+        <span>Temporizador</span>
+      </div>
       {/* Temporizador */}
       <div className="relative" style={{ width: tamanho, height: tamanho }}>
         <svg width={tamanho} height={tamanho} className="absolute left-0 top-0">
-          
           {/* Círculo dourado (fundo) */}
           <circle
             cx={centro}
@@ -219,7 +219,7 @@ export default function Temporizador() {
             strokeLinecap="round"
             style={{
               transition: "stroke-dashoffset 0.7s cubic-bezier(0.6,0,0.4,1)",
-              transform : "rotate(-90deg)",
+              transform: "rotate(-90deg)",
               transformOrigin: "50% 50%",
             }}
           />

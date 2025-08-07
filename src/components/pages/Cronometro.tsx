@@ -9,7 +9,7 @@ export default function Cronometro() {
   useEffect(() => {
     if (rodando) {
       intervalRef.current = setInterval(() => {
-        setTempo(t => t + 1);
+        setTempo((t) => t + 1);
       }, 1000);
     } else if (intervalRef.current) {
       clearInterval(intervalRef.current);
@@ -37,10 +37,12 @@ export default function Cronometro() {
   const progressoStroke = progressoMinuto * circunferencia;
 
   return (
-    <div className="flex flex-col items-center justify-center gap-8">
+    <div className="flex flex-col items-center justify-center gap-3">
+      <div className="mb-8 mt- text-3xl font-mono text-neutral-200 tracking-tight text-center flex items-center justify-center gap-4 w-full">
+        <span>Cronômetro</span>
+      </div>
       <div className="relative" style={{ width: tamanho, height: tamanho }}>
         <svg width={tamanho} height={tamanho} className="absolute left-0 top-0">
-          
           {/* Círculo de fundo */}
           <circle
             cx={centro}
@@ -50,7 +52,7 @@ export default function Cronometro() {
             strokeWidth={10}
             fill="none"
           />
-          
+
           {/* Barra de progresso */}
           <circle
             cx={centro}
@@ -62,10 +64,10 @@ export default function Cronometro() {
             strokeDasharray={circunferencia}
             strokeDashoffset={circunferencia - progressoStroke}
             strokeLinecap="round"
-            style={{ 
-              transition: "stroke-dashoffset 0.7s cubic-bezier(0.6,0,0.4,1)", 
-              transform : "rotate(-90deg)",
-              transformOrigin: "50% 50%"
+            style={{
+              transition: "stroke-dashoffset 0.7s cubic-bezier(0.6,0,0.4,1)",
+              transform: "rotate(-90deg)",
+              transformOrigin: "50% 50%",
             }}
           />
         </svg>
@@ -76,7 +78,7 @@ export default function Cronometro() {
       </div>
       <div className="flex gap-4 mt-2">
         <button
-          onClick={() => setRodando(v => !v)}
+          onClick={() => setRodando((v) => !v)}
           className={`px-7 py-2 rounded text-lg font-mono transition-colors
             ${rodando ? "bg-red-800 text-white" : "bg-[#ca8a04] text-black"}
             shadow hover:scale-105 active:scale-95`}
@@ -84,7 +86,10 @@ export default function Cronometro() {
           {rodando ? "Pausar" : "Iniciar"}
         </button>
         <button
-          onClick={() => { setTempo(0); setRodando(false); }}
+          onClick={() => {
+            setTempo(0);
+            setRodando(false);
+          }}
           className="px-7 py-2 rounded text-lg font-mono bg-neutral-800 text-white transition-colors hover:bg-neutral-700 shadow"
           disabled={tempo === 0}
         >
