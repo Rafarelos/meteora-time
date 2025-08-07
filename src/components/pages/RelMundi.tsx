@@ -1,8 +1,17 @@
 import { useEffect, useState } from "react";
 import { Pencil, Trash, Plus } from "lucide-react";
 
+// Define o tipo Cidade incluindo o horario (opcional)
+type Cidade = {
+  nome: string;
+  pais: string;
+  timezone: string;
+  bandeira: string;
+  horario?: string;
+};
+
 // Fusos horários manuais
-const timezones = [
+const timezones: Cidade[] = [
   {
     nome: "São Paulo",
     pais: "Brasil",
@@ -39,11 +48,10 @@ function fetchHoraCidade(timezone: string): Promise<string> {
 }
 
 export default function RelogioMundial() {
-  const [cidades, setCidades] = useState(timezones.slice(0, 3)); // Começa com 4 cidades
+  const [cidades, setCidades] = useState<Cidade[]>(timezones.slice(0, 3));
   const [modalAdd, setModalAdd] = useState(false);
   const [novaCidade, setNovaCidade] = useState<string>(timezones[0].timezone);
 
-  // Atualiza os horários a cada 5s
   useEffect(() => {
     let ativo = true;
     async function atualizarHoras() {
@@ -63,7 +71,6 @@ export default function RelogioMundial() {
     };
   }, [cidades.length]);
 
-  // Adiciona cidade
   function adicionarCidade() {
     if (!novaCidade) return;
     const info = timezones.find((tz) => tz.timezone === novaCidade);
@@ -72,7 +79,6 @@ export default function RelogioMundial() {
     setModalAdd(false);
   }
 
-  // Remove cidade
   function removerCidade(idx: number) {
     setCidades(cidades.filter((_, i) => i !== idx));
   }
@@ -146,7 +152,6 @@ export default function RelogioMundial() {
               {cidade.nome} — {cidade.pais}
             </span>
             <div className="flex gap-2 mt-5 justify-end">
-              {/* Botão Pencil (para futura edição, ainda não abre modal) */}
               <button
                 className="px-3 py-2 bg-neutral-900 hover:bg-neutral-800 rounded-full flex items-center justify-center transition border border-neutral-700"
                 title="Editar cidade (em breve)"
@@ -154,7 +159,6 @@ export default function RelogioMundial() {
               >
                 <Pencil size={24} color="#ca8a04" />
               </button>
-              {/* Botão Excluir */}
               <button
                 className="px-3 py-2 bg-neutral-900 hover:bg-neutral-800 rounded-full flex items-center justify-center transition border border-neutral-700"
                 onClick={() => removerCidade(idx)}
