@@ -170,7 +170,7 @@ export default function RelogioMundial() {
 
       {/* Botão add cidade - desktop */}
       <button
-          className="block lg:flex fixed bottom-28 right-12 w-20 rounded-full bg-neutral-900 hover:bg-neutral-800 border-2 border-[#22c55e] flex items-center justify-center transition"
+          className="hidden lg:flex fixed bottom-28 right-12 w-20 rounded-full bg-neutral-900 hover:bg-neutral-800 border-2 border-[#22c55e] flex items-center justify-center transition"
           onClick={() => setModalAdd(true)}
           title="Adicionar cidade"
         >
